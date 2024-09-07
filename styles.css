@@ -1,74 +1,84 @@
 body {
-    margin: 0;
+    font-family: Arial, sans-serif;
     display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
-    background-color: #1a1a2e;
+    margin: 0;
+    background-color: #2c3e50;
 }
 
 #game-container {
-    width: 400px;
+    width: 800px;
     height: 600px;
-    background-color: #16213e;
-    position: relative;
+    background-color: #27ae60;
     border-radius: 20px;
+    position: relative;
     overflow: hidden;
-    border: 4px solid #0f3460;
 }
 
-#ball {
-    width: 20px;
-    height: 20px;
-    background-color: #e94560;
-    border-radius: 50%;
+#opponents {
+    display: flex;
+    justify-content: space-between;
+    padding: 20px;
+}
+
+.player {
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
+    text-align: center;
+}
+
+#table {
+    width: 300px;
+    height: 200px;
+    background-color: #34495e;
+    margin: 20px auto;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+#player1 {
     position: absolute;
-    top: 300px;
-    left: 190px;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 80%;
 }
 
-.flipper {
-    width: 100px;
-    height: 20px;
-    background-color: #0f3460;
+#player-hand {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.card {
+    width: 50px;
+    height: 75px;
+    background-color: white;
+    border: 1px solid #333;
+    border-radius: 5px;
+    margin: 0 5px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-weight: bold;
+    cursor: pointer;
+}
+
+#score-container {
     position: absolute;
-    bottom: 50px;
-    transition: transform 0.1s;
+    top: 20px;
+    right: 20px;
+    background-color: #ecf0f1;
+    padding: 10px;
+    border-radius: 5px;
 }
 
-.flipper.left {
-    left: 50px;
-    transform-origin: left center;
-}
-
-.flipper.right {
-    right: 50px;
-    transform-origin: right center;
-}
-
-.flipper.active {
-    transform: rotate(-45deg);
-}
-
-.flipper.right.active {
-    transform: rotate(45deg);
-}
-
-.bumper {
-    width: 40px;
-    height: 40px;
-    background-color: #e94560;
-    border-radius: 50%;
-    position: absolute;
-}
-
-.bumper:nth-child(3) { top: 100px; left: 100px; }
-.bumper:nth-child(4) { top: 200px; right: 100px; }
-.bumper:nth-child(5) { top: 300px; left: 180px; }
-
-#score {
-    margin-top: 20px;
-    font-size: 24px;
-    font-family: Arial, sans-serif;
-    color: #e94560;
+#scores {
+    list-style-type: none;
+    padding: 0;
 }
