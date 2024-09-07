@@ -18,16 +18,27 @@ function updateBallPosition() {
     ballSpeedY += 0.2;
 
     // Bounce off walls
-    if (ballX < 0 || ballX > 380) ballSpeedX *= -0.8;
-    if (ballY < 0) ballSpeedY *= -0.8;
+    if (ballX < 10 || ballX > 370) {
+        ballSpeedX *= -0.8;
+        ballX = Math.max(10, Math.min(370, ballX));
+    }
+    if (ballY < 10) {
+        ballSpeedY *= -0.8;
+        ballY = 10;
+    }
 
     // Bottom boundary (game over condition)
-    if (ballY > 580) {
+    if (ballY > 570) {
         ballY = 300;
         ballX = 190;
         ballSpeedX = 0;
         ballSpeedY = 0;
     }
+
+    // Limit maximum speed
+    const maxSpeed = 10;
+    ballSpeedX = Math.max(-maxSpeed, Math.min(maxSpeed, ballSpeedX));
+    ballSpeedY = Math.max(-maxSpeed, Math.min(maxSpeed, ballSpeedY));
 
     ball.style.left = `${ballX}px`;
     ball.style.top = `${ballY}px`;
